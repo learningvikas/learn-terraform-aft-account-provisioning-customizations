@@ -2,7 +2,7 @@
 
 resource "aws_ssm_parameter" "account_list" {
     count   = length(data.aws_organizations_organization.account_list.accounts[*].id)
-    name    = "/nm/aft/account_id/${lower(replace(data.aws_organizations_organization.account_list.accounts[count.index].name, "","_"))}"
+    name    = "/nm/aft/account_id/${lower(replace(data.aws_organizations_organization.account_list.accounts[count.index].name, " ", "_"))}"
     type    = "String"
     value   = data.aws_organizations_organization.account_list.accounts[count.index].id
     overwrite = false
