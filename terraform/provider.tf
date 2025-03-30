@@ -7,7 +7,7 @@ data "aws_ssm_parameter" "ct_management-account-id" {
 provider "aws" {
     alias = "ct_management_account"
     assume_role {
-        role_arn = "arn:aws:iam::${data.aws_ssm_parameter.ct-management-account-id.value}:role/AWSAFTExecution"
+        role_arn = "arn:aws:iam::${data.aws_ssm_parameter.ct_management-account-id.value}:role/AWSAFTExecution"
     }
     region = "ap-south-1"
 }
